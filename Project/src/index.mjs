@@ -79,8 +79,6 @@ app.route('/login')
   app.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
     
-    // TODO: Add code to save the user to the database
-    
     res.redirect('/');
   });
     
