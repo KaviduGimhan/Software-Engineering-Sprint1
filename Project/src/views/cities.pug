@@ -9,9 +9,9 @@ block content
     thead     
       th.text-center 🚩
       th City
-      th Population
+      th.number Population
     tbody
-      each row, i in rows
+      each row in rows
         tr                  
           td.fit #{row.CountryCode}
           td #{row.Name}
