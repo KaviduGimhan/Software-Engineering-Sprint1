@@ -14,7 +14,7 @@ app.use(express.static("static"));
 
 
 /* Setup database connection */
-const db = mysql.createConnection({
+const db = await mysql.createConnection({
     host: process.env.DATABASE_HOST || "localhost",
     user: "user",
     password: "password",
@@ -43,12 +43,12 @@ app.get("/gallery", (req, res) => {
 
 // About route
 app.get("/about", (req, res) => {
-  res.render("about", { title: "Boring about page" });
+  res.render("about", { title: "zasheen " });
 });
 
 app.get("/cities", async (req, res) => {
   try{
-    const [rows, fields] = await db.execute("SELECT *  FROM `City`");
+    const [rows, fields] = await db.execute("SELECT *  FROM `city`");
     /* Render cities.pug with data passed as plain object */
     return res.render("cities", { rows, fields });
   } catch (err) {
@@ -59,11 +59,11 @@ app.get("/cities", async (req, res) => {
 
 // Returns JSON array of cities
 app.get("/api/cities", async (req, res) => {
-  const [rows, fields] = await db.execute("SELECT *  FROM `City`");
+  const [rows, fields] = await db.execute("SELECT *  FROM `city`");
   return res.send(rows);
 });
 
 // Run server!
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
-});
+}); 

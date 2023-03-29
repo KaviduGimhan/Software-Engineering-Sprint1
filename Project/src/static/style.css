@@ -1,6 +1,6 @@
 html,
 body {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Segoe UI", sans-serif;
   background-color: #eeeeee;
   margin: 0;
@@ -46,12 +46,12 @@ nav b {
 }
 
 nav a {
-  color: #181818;
+  color: #0e0bb9;
   text-decoration: none;
 }
 
 nav a:hover {
-  color: cornflowerblue;
+  color: rgb(235, 100, 237);
 }
 
 .layout-content {
