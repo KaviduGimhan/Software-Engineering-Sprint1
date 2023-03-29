@@ -1,0 +1,70 @@
+/* Background */
+body {
+    background-color: #f8f8f8;
+  }
+  
+  /* Title */
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  /* Search form */
+  form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  input[type="text"] {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #ddd;
+    width: 400px;
+    max-width: 80%;
+    margin: 10px;
+  }
+  
+  input[type="submit"] {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    margin-left: 20px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  /* Table */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+  }
+  
+  th {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  td {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  tr:nth-child(even) td {
+    background-color: #ddd;
+  }
+  

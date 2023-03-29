@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Search Results
+  table.table.table-striped
+    thead
+      tr
+        th City Name
+        th Country Code
+        th District
+        th Population
+    tbody
+      each row in rows
+        tr
+          td= row.Name
+          td= row.CountryCode
+          td= row.District
+          td= row.Population
+  link(rel="stylesheet", href="/result_style.css")

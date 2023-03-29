@@ -36,10 +36,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// Gallery route
-app.get("/gallery", (req, res) => {
-  res.render("gallery");
-});
+
 
 // About route
 app.get("/about", (req, res) => {
@@ -56,12 +53,64 @@ app.get("/cities", async (req, res) => {
   }
 });
 
+// Login route
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+// Login route
+app.route('/login')
+  .get((req, res) => {
+    res.render("login");
+  })
+  .post(async (req, res) => {
+    const { username, password } = req.body;
+    // Implement authentication logic here
+    if (username === "admin" && password === "password") {
+      // Authentication successful, redirect to a protected page
+      return res.redirect("/dashboard");
+    } else {
+      // Authentication failed, show an error message
+      return res.render("login", { message: "Invalid username or password" });
+    }
+  });
+  app.get('/signup', (req, res) => {
+    res.render('signup');
+  });
+  app.post('/signup', async (req, res) => {
+    const { name, email, password } = req.body;
+    
+    // TODO: Add code to save the user to the database
+    
+    res.redirect('/');
+  });
+    
+  // City search route
+app.get("/search", async (req, res) => {
+  const city = req.query.city;
+  if (!city) {
+    // If no city name is provided, return an empty page
+    return res.render("search");
+  }
+  try {
+    const [rows, fields] = await db.execute(
+      `SELECT * FROM city WHERE Name LIKE '%${city}%'`
+    );
+    // Render the search results in a table
+    return res.render("search-results", { rows, fields });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Internal server error");
+  }
+});
 
+  
 // Returns JSON array of cities
 app.get("/api/cities", async (req, res) => {
   const [rows, fields] = await db.execute("SELECT *  FROM `city`");
   return res.send(rows);
 });
+
+
 
 // Run server!
 app.listen(port, () => {

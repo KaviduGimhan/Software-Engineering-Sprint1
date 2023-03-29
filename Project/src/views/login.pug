@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .container
+    .card
+      .card-header
+        h2 Login
+      .card-body
+        form(action="/login", method="POST")
+          .form-group
+            label(for="username") Username
+            input#username.form-control(type="text", name="username", placeholder="Enter username", required)
+          .form-group
+            label(for="password") Password
+            input#password.form-control(type="password", name="password", placeholder="Enter password", required)
+          button.btn.btn-primary(type="submit") Login
+      .card-footer
+        p Don't have an account?
+        a(href="/signup") Sign up here.
+
+
+  link(rel="stylesheet", href="/login.css")
