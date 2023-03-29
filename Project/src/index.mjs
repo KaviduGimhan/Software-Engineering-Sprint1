@@ -12,12 +12,13 @@ app.set("view engine", "pug");
 // Serve assets from 'static' folder
 app.use(express.static("static"));
 
+
 /* Setup database connection */
 const db = mysql.createConnection({
-  host: process.env.DATABASE_HOST || "localhost",
-  user: "user",
-  password: "password",
-  database: "world",
+    host: process.env.DATABASE_HOST || "localhost",
+    user: "user",
+    password: "password",
+    database: "world",
 });
 
 /* Landing route */
@@ -47,18 +48,18 @@ app.get("/about", (req, res) => {
 
 app.get("/cities", async (req, res) => {
   try{
-    const [rows, fields] = await db.execute("SELECT *  FROM 'City' ");
+    const [rows, fields] = await db.execute("SELECT *  FROM `City`");
     /* Render cities.pug with data passed as plain object */
     return res.render("cities", { rows, fields });
-  } catch (err){
-      console.error(err)
+  } catch (err) {
+      console.error(err);
   }
 });
 
 
 // Returns JSON array of cities
 app.get("/api/cities", async (req, res) => {
-  const [rows, fields] = await db.execute("SELECT *  FROM 'City' ");
+  const [rows, fields] = await db.execute("SELECT *  FROM `City`");
   return res.send(rows);
 });
 
