@@ -46,20 +46,39 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/cities", async (req, res) => {
-  try{
-    const [rows, fields] = await db.execute("SELECT *  FROM 'City' ");
-    /* Render cities.pug with data passed as plain object */
-    return res.render("cities", { rows, fields });
-  } catch (err){
-      console.error(err)
-  }
+  const [rows, fields] = await db.getCities();
+  /* Render cities.pug with data passed as plain object */
+  return res.render("cities", { rows, fields });
 });
 
+app.get('/cities/:id', async (req, res) => {
+  const cityId = req.params.id;
+  const city = await db.getCity(cityId);
+  return res.render('city', { city });
+})
+
+/* Update a city by ID */
+app.post('/cities/:id', async (req, res) => {
+  const cityId = req.params.id;
+  const { name } = req.body;
+  const sql = `
+    UPDATE city
+    SET Name = '${name}'
+    WHERE ID = '${cityId}';
+  `
+  await conn.execute(sql);
+  return res.redirect(`/cities/${cityId}`);
+})
 
 // Returns JSON array of cities
 app.get("/api/cities", async (req, res) => {
-  const [rows, fields] = await db.execute("SELECT *  FROM 'City' ");
+  const [rows, fields] = await db.getCities();
   return res.send(rows);
+});
+
+app.get("/api/countries", async (req, res) => {
+  const countries = await db.getCountries();
+  res.send(countries);
 });
 
 // Run server!
