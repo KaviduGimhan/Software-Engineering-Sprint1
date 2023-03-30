@@ -3,11 +3,17 @@ body {
     background-color: #f8f8f8;
   }
   
+  label {
+    color: white;
+    font-size: large;
+    font-weight: bold;
+  }
+  
   /* Title */
   h1 {
     font-size: 36px;
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
     text-align: center;
     margin-top: 30px;
   }
@@ -41,7 +47,7 @@ body {
     border-radius: 20px;
   }
   button {
-    background-color: #686969;
+    background-color: #196dc6;
     border: none;
     margin-top: 9px;
     border-radius: 10px;
@@ -52,16 +58,22 @@ body {
     padding: 10px 20px;
     transition: all 0.2s;}
   
+    button:hover {
+      background-color: #0059b9;
+    }
+    
   /* Table */
   table {
+    color:#f5f5f5;
     border-collapse: collapse;
     width: 100%;
     max-width: 800px;
     margin: 50px auto;
   }
   
+  
   th {
-    background-color: #333;
+    background-color: #ffffff;
     color: #fff;
     text-align: left;
     padding: 10px;
