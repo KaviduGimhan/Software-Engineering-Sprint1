@@ -16,6 +16,9 @@ body {
   form {
     display: flex;
     justify-content: center;
+    border-radius: 20px;
+    width: 100%;
+    height: 55px;
     margin-top: 50px;
   }
   
@@ -28,20 +31,18 @@ body {
     max-width: 80%;
     margin: 10px;
   }
-  
-  input[type="submit"] {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 20px;
+  button {
+    background-color: #686969;
     border: none;
-    background-color: #333;
+    margin-top: 9px;
+    border-radius: 10px;
+    height: 45px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     color: #fff;
-    margin-left: 20px;
     cursor: pointer;
-    margin: 10px;
+    padding: 10px 20px;
+    transition: all 0.2s;
   }
-  
   /* Table */
   table {
     border-collapse: collapse;
