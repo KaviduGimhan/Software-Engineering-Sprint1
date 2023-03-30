@@ -9,15 +9,15 @@ executors:
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
 jobs:
-  npm-dev:
+  my-job-name:
 
     executor: my-custom-executor
     steps:
       - checkout
       - run: |
-          npm install
+          # echo Hello, World!
 
 workflows:
   my-custom-workflow:
     jobs:
-      - npm-dev
+      - my-job-name
