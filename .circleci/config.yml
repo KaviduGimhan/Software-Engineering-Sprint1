@@ -1,16 +1,13 @@
 version: 2.1
-
-workflows:
-  test-deploys:
-    jobs:
-      - test
+orbs:
+   node: circleci/node@4.7.0
 jobs:
   test:
     working_directory: ~/Software-Engineering-Sprint1/.circleci
     docker:
-    - image: cimg/node:lts
+      - image: cimg/node:lts
     executor: my-custom-executor
     steps:
-      - checkout
+      - checkout:
           path: ~/Software-Engineering-Sprint1
       - run: npm install
