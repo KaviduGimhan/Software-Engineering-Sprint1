@@ -15,5 +15,6 @@ block content
           td= row.Name
           td= row.CountryCode
           td= row.District
-          td= row.Population
+          - const population = new Intl.NumberFormat().format(row.Population);
+          td.fit.number #{population}
   link(rel="stylesheet", href="/result_style.css")

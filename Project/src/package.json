@@ -2,9 +2,9 @@
   "name": "myproject",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.mjs",
     "dev": "nodemon -e pug,js,mjs,css --exec node index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
