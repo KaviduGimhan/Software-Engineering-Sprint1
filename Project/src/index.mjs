@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 
 // About route
 app.get("/about", (req, res) => {
-  res.render("about", { title: "zasheen " });
+  res.render("about", { title: "group 7w ! scrum master -Kavidu, product owner - Thinura, members- Zasheen and Sarah " });
 });
 
 app.get("/cities", async (req, res) => {

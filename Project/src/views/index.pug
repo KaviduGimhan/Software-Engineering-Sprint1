@@ -4,7 +4,8 @@ block head
   link(rel="stylesheet", href="/gallery.css")
 
 block content
-  h2 welcome to Population data, here you can explore different population data
+  h2 welcome to Population data! 
+  h3 here you can explore different population data
   .gallery
     each idx in Array.from(Array(25).keys())
         img.gallery-img(src=`https://source.unsplash.com/random/${idx}`, alt="")

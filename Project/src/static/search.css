@@ -22,6 +22,7 @@ body {
   input[type="text"] {
     font-size: 18px;
     padding: 10px;
+    border-radius: 50%;
     border-radius: 20px;
     border: 2px solid #ddd;
     width: 400px;
@@ -30,6 +31,7 @@ body {
   }
   
   input[type="submit"] {
+    border-radius: 50%;
     font-size: 18px;
     font-weight: bold;
     padding: 10px 20px;
