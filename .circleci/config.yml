@@ -1,23 +1,46 @@
 version: 2.1
+
 executors:
   my-custom-executor:
     docker:
       - image: cimg/base:stable
         auth:
-          # ensure you have first added these secrets
-          # visit app.circleci.com/settings/project/github/KaviduGimhan/Software-Engineering-Sprint1/environment-variables
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
-jobs:
-  my-job-name:
 
+jobs:
+  build:
     executor: my-custom-executor
     steps:
       - checkout
-      - run: |
-          # echo Hello, World!
+      - run:
+          name: Build and Test
+          command: |
+            # Build and run unit tests
+            echo "Building and running tests..."
+            # Run unit tests here
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build/
+            - test-results/
+
+  deploy:
+    executor: my-custom-executor
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Deploy to Production
+          command: |
+            # Deploy code to production
+            echo "Deploying to production..."
 
 workflows:
-  my-custom-workflow:
+  build-and-deploy:
     jobs:
-      - my-job-name
+      - build
+      - deploy:
+          requires:
+            - build
