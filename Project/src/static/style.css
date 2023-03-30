@@ -2,6 +2,7 @@ html,
 body {
   font-size: 15px;
   font-family: "Segoe UI", sans-serif;
+  background-image: linear-gradient(to bottom right, #24c6dc  ,#514a9d);
   background-color: #eeeeee;
   margin: 0;
   padding: 0;
@@ -28,6 +29,7 @@ h1 {
   padding: 0;
 }
 
+
 h2 {
   margin: 0;
   margin-bottom: 1rem;
@@ -46,12 +48,12 @@ nav b {
 }
 
 nav a {
-  color: #0e0bb9;
+  color: #ffffff;
   text-decoration: none;
 }
 
 nav a:hover {
-  color: rgb(100, 194, 237);
+  color: rgb(255, 255, 255);
 }
 
 .layout-content {
