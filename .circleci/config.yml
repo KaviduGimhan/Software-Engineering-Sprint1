@@ -1,17 +1,23 @@
-
 version: 2.1
-
-orbs:
-  node: circleci/node@5.1.0
-
-jobs:
-  example-job:
+executors:
+  my-custom-executor:
     docker:
-      # replace with your preferred image
       - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/KaviduGimhan/Software-Engineering-Sprint1/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+jobs:
+  npm-dev:
+
+    executor: my-custom-executor
     steps:
-      - node/install-packages
+      - checkout
+      - run: |
+          npm install
+
 workflows:
-  example-workflow:
+  my-custom-workflow:
     jobs:
-      - example-job
+      - npm-dev
