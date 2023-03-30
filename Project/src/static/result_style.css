@@ -5,8 +5,13 @@
   margin-top: 20px;
 }
 
+h1{
+
+  color: #ffffff;
+}
+
+
 .table th {
-  background-color: #444;
   background-color: #565656;
   color: white;
   font-weight: bold;
@@ -33,7 +38,7 @@
   padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 1s;
 }
 
 .search-btn:hover {
