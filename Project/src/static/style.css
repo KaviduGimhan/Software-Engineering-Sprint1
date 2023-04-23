@@ -1,11 +1,12 @@
 html,
 body {
   font-size: 15px;
-  font-family: "Segoe UI", sans-serif;
-  background-image: linear-gradient(to bottom right, #24c6dc  ,#514a9d);
+  font-family: "Lato", sans-serif;
+  background-image: linear-gradient(to bottom right, #000000  ,#92865f);
   background-color: #eeeeee;
   margin: 0;
   padding: 0;
+  font-family: #ffffff;
 }
 
 *,
@@ -34,6 +35,7 @@ h2 {
   margin: 0;
   margin-bottom: 1rem;
   padding: 0;
+  color: #ffffff;
 }
 
 nav {
