@@ -50,10 +50,13 @@ nav a {
   text-decoration: none;
 }
 
+<<<<<<< Updated upstream
 nav a:hover {
   color: cornflowerblue;
 }
 
+=======
+>>>>>>> Stashed changes
 .layout-content {
   padding-top: 1.5rem;
 }

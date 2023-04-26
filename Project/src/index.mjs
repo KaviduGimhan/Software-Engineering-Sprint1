@@ -42,7 +42,11 @@ app.get("/gallery", (req, res) => {
 
 // About route
 app.get("/about", (req, res) => {
+<<<<<<< Updated upstream
   res.render("about", { title: "Boring about page" });
+=======
+  res.render("about"); 
+>>>>>>> Stashed changes
 });
 
 app.get("/cities", async (req, res) => {

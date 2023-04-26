@@ -1,5 +1,68 @@
+<<<<<<< Updated upstream
 :root {
   --clr-table: rgba(0,0,0,0.75);
+=======
+html,
+body {
+  font-size: 15px;
+  font-family: "Segoe UI", sans-serif;
+  background-image: linear-gradient(to bottom right, #000000, #92865f);
+  background-color: #eeeeee;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0rem 3rem;
+}
+
+h1 {
+  font-size: xx-large;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+  color: #ffffff;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0rem;
+}
+
+nav b {
+  font-size: large;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #bcbcbc;
+}
+
+.layout-content {
+  padding-top: 1.5rem;
+>>>>>>> Stashed changes
 }
 
 table {
@@ -9,6 +72,7 @@ table {
 }
 
 th, td {
+<<<<<<< Updated upstream
   border-bottom: 1px solid var(--clr-table);
   padding: 0.25rem 1rem;
   text-align: left;
@@ -27,6 +91,38 @@ thead th {
 
 .fit {
   width: 1px;
+=======
+  border: 1px solid var(--table-border-color);
+  padding: 0.75rem;
+  color: #ffffff;
+  text-align: left;
+}
+
+th.population {
+  text-align: right;
+}
+
+
+
+th {
+  background-color: var(--table-header-background-color);
+  color: var(--table-header-text-color);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+tbody tr:nth-child(even) {
+  background-color: var(--table-row-alternate-background-color);
+}
+
+
+tbody tr:hover {
+  background-color: #a2a2a3;
+}
+
+td.fit {
+>>>>>>> Stashed changes
   white-space: nowrap;
 }
 
