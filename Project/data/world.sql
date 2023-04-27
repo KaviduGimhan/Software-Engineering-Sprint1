@@ -26,6 +26,20 @@ CREATE DATABASE `world` DEFAULT CHARACTER SET utf8mb4;
 
 USE `world`;
 
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX email_index (`email`)
+);
+--
+-- Dumping data for table `user`
+--
+INSERT INTO `user` VALUES (1,'adam@example.com','password');
+INSERT INTO `user` VALUES (2,'tom@example.com','password');
+commit;
+
 --
 -- Table structure for table `city`
 --
@@ -5409,7 +5423,7 @@ INSERT INTO `countrylanguage` VALUES ('ZMB','Chewa','F',5.7);
 INSERT INTO `countrylanguage` VALUES ('ZMB','Lozi','F',6.4);
 INSERT INTO `countrylanguage` VALUES ('ZMB','Nsenga','F',4.3);
 INSERT INTO `countrylanguage` VALUES ('ZMB','Nyanja','F',7.8);
-INSERT INTO `countrylanguage` VALUES ('ZMB','Tonga','F',11.0);
+INSERT INTO `countrylanguage` VALUES ('ZMB','Tongan','F',11.0);
 INSERT INTO `countrylanguage` VALUES ('ZWE','English','T',2.2);
 INSERT INTO `countrylanguage` VALUES ('ZWE','Ndebele','F',16.2);
 INSERT INTO `countrylanguage` VALUES ('ZWE','Nyanja','F',2.2);
