@@ -1,5 +1,13 @@
-extends layout.pug 
+extends layout
 
 block content
+  nav
+    ul
+      li
+        a(href='/dashboard') Dashboard
+      li
+        a(href='/profile') Profile
+      li
+        a(href='/logout') Logout
   h2 Account
   div #{user.email}
