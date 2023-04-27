@@ -12,13 +12,12 @@ app.set("view engine", "pug");
 // Serve assets from 'static' folder
 app.use(express.static("static"));
 
-
 /* Setup database connection */
 const db = await mysql.createConnection({
-    host: process.env.DATABASE_HOST || "localhost",
-    user: "user",
-    password: "password",
-    database: "world",
+  host: process.env.DATABASE_HOST || "localhost",
+  user: "user",
+  password: "password",
+  database: "world",
 });
 
 /* Landing route */
@@ -31,34 +30,25 @@ app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
-// Landing route
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-
-
 // About route
 app.get("/about", (req, res) => {
-  res.render("about", { title: "Group 7w ! scrum master -Kavidu, product owner - Thinura, members- Zasheen and Sarah " });
+  res.render("about");
 });
 
+// Cities route
 app.get("/cities", async (req, res) => {
-  try{
+  try {
     const [rows, fields] = await db.execute("SELECT *  FROM `city`");
     /* Render cities.pug with data passed as plain object */
     return res.render("cities", { rows, fields });
   } catch (err) {
-      console.error(err);
+    console.error(err);
+    return res.status(500).send("Internal server error");
   }
 });
 
 // Login route
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-// Login route
-app.route('/login')
+app.route("/login")
   .get((req, res) => {
     res.render("login");
   })
@@ -73,17 +63,31 @@ app.route('/login')
       return res.render("login", { message: "Invalid username or password" });
     }
   });
-  
-  app.get('/signup', (req, res) => {
-    res.render('signup');
-  });
-  app.post('/signup', async (req, res) => {
+
+// Signup route
+app.route("/signup")
+  .get((req, res) => {
+    res.render("signup");
+  })
+  .post(async (req, res) => {
     const { name, email, password } = req.body;
-    
-    res.redirect('/');
+
+    // Validate name, email, and password
+    if (!name || !email || !password) {
+      res.status(400).send("Missing required information");
+      return;
+    }
+
+    // Add code here to check if email already exists in database
+    // ...
+
+    // Add code here to hash password and save user to database
+    // ...
+
+    res.redirect("/");
   });
-    
-  // City search route
+
+// City search route
 app.get("/search", async (req, res) => {
   const city = req.query.city;
   if (!city) {
@@ -102,16 +106,18 @@ app.get("/search", async (req, res) => {
   }
 });
 
-  
 // Returns JSON array of cities
 app.get("/api/cities", async (req, res) => {
-  const [rows, fields] = await db.execute("SELECT *  FROM `city`");
-  return res.send(rows);
+  try {
+    const [rows, fields] = await db.execute("SELECT *  FROM `city`");
+    return res.send(rows);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Internal server error");
+  }
 });
 
-
-
-// Run server!
+// Run server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 }); 

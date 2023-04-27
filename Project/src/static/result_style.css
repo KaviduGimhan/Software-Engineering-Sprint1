@@ -3,17 +3,18 @@
   border-collapse: collapse;
   width: 100%;
   margin-top: 20px;
+  color: #000000;
 }
 
 h1{
 
-  color: #ffffff;
+  color: #000000;
 }
 
 
 .table th {
   background-color: #565656;
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   text-align: left;
   padding: 15px;
@@ -26,11 +27,9 @@ h1{
   padding: 15px;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #ffffff;
-}
+
 .table tr:hover {
-  background-color: #a2a2a3;
+  background-color: #898989;
 }
 
 /* Button styles */
@@ -64,3 +63,4 @@ tbody tr:nth-child(even) {
   font-weight: bold;
   margin-right: 20px;
 }
+

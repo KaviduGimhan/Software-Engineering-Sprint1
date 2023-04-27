@@ -5,8 +5,8 @@ block head
   link(rel="stylesheet", href="/gallery.css")
 
 block content
-  h2 welcome to Population data! 
-  h3 here you can explore different population data
+  h2 Welcome to Population data! 
+  h3 Here you can explore different population data
   .gallery
     each idx in Array.from(Array(25).keys())
         img.gallery-img(src=`https://picsum.photos/600/200?random=${idx}`, alt="")

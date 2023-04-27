@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  margin: 0 auto;
+  margin: auto ;
   width: 500px;
   padding: 20px;
   background-color: #fff;
@@ -70,3 +70,4 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #3e8e41;
 }
+

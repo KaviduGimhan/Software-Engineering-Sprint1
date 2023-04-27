@@ -2,11 +2,11 @@ html,
 body {
   font-size: 15px;
   font-family: "Segoe UI", sans-serif;
-  background-image: linear-gradient(to bottom right, #000000, #92865f);
-  background-color: #eeeeee;
+  background-image: url(3.jpg);
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
-  font-family: #ffffff;
+  font-family: #000000;
 }
 
 *,
@@ -30,32 +30,23 @@ h1 {
   padding: 0;
 }
 
-
-h2 {
-  margin: 0;
-  margin-bottom: 1rem;
-  padding: 0;
-  color: #ffffff;
-}
-
 nav {
   display: flex;
+  color: black;
+  justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
   padding: 1rem 0rem;
 }
 
 nav b {
+  color: rgb(0, 0, 0);
   font-size: large;
 }
 
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: rgb(255, 255, 255);
+nav b:hover {
+  color: #4d747d;
+  text-decoration: underline;
 }
 
 .layout-content {
