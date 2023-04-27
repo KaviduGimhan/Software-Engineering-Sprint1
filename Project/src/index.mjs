@@ -48,7 +48,7 @@ app.get("/about", (req, res) => {
 // Cities route
 app.get("/cities", async (req, res) => {
   try {
-    const [rows, fields] = await db.execute("SELECT *  FROM `city`");
+    const [rows, fields] = await conn.execute("SELECT *  FROM `city`");
     /* Render cities.pug with data passed as plain object */
     return res.render("cities", { rows, fields });
   } catch (err) {
@@ -64,7 +64,7 @@ app.get("/search", async (req, res) => {
     return res.render("search");
   }
   try {
-    const [rows, fields] = await db.execute(
+    const [rows, fields] = await conn.execute(
       `SELECT * FROM city WHERE Name LIKE '%${city}%'`
     );
     // Render the search results in a table
@@ -73,7 +73,7 @@ app.get("/search", async (req, res) => {
     console.error(err);
     return res.status(500).send("Internal server error");
   }
-});
+}); 
 
 // Returns JSON array of cities
 app.get("/api/cities", async (req, res) => {
@@ -163,4 +163,4 @@ app.post("/api/login", async (req, res) => {
 // Run server!
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
-});
+});  

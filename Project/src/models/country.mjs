@@ -12,4 +12,5 @@ export default class Country {
       this.region = region;
       this.population = population;
     }
-  } 
+  }
+  
