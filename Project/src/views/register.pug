@@ -6,7 +6,8 @@ block head
 block content
   h2 Register
   .form-container
-    form(action='/api/login', method='POST')
+    form(action='/api/register', method='POST')
+    
       label(for='email') Enter your email:
       input(
         name='email', 
@@ -19,4 +20,5 @@ block content
         type='password', 
         required
       )
+      
       input(type='submit', value='Submit')

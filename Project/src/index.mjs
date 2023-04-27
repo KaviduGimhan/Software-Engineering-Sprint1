@@ -117,7 +117,7 @@ app.post("/api/register", async (req, res) => {
   const { email, password } = req.body;
   const hashed = await bcrypt.hash(password, 10);
   try {
-    const sql = `INSERT INTO user (email, password) VALUES ('${email}', '${hashed}')`;
+    const sql = `INSERT INTO user (email, password), VALUES ('${email}', '${hashed}')`;
     const [result, _] = await conn.execute(sql);
     const id = result.insertId;
     req.session.auth = true;
@@ -158,7 +158,15 @@ app.post("/api/login", async (req, res) => {
 
   return res.redirect("/account");
 });
-
+app.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/login');
+    }
+  });
+});
 
 // Run server!
 app.listen(port, () => {

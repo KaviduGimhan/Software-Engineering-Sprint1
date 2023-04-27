@@ -32,12 +32,16 @@ h1 {
 
 nav {
   display: flex;
-  color: black;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1rem 0rem;
+  padding: 1rem;
+  background-color: #9ca5ac;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-radius: 20px;  
+  border-bottom: 5px solid #cccccc;
 }
+
 
 nav b {
   color: rgb(0, 0, 0);
@@ -46,7 +50,6 @@ nav b {
 
 nav b:hover {
   color: #4d747d;
-  text-decoration: underline;
 }
 
 .layout-content {
