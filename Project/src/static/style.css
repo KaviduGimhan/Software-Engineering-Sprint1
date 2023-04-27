@@ -39,7 +39,7 @@ nav {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-radius: 20px;  
-  border-bottom: 5px solid #cccccc;
+
 }
 
 
@@ -47,6 +47,13 @@ nav b {
   color: rgb(0, 0, 0);
   font-size: large;
 }
+
+nav a {
+  color: rgb(0, 0, 0);
+  font-size: large;
+  text-decoration: none;
+}
+
 
 nav b:hover {
   color: #4d747d;

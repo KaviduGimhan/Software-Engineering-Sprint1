@@ -6,26 +6,27 @@ h2{
 .employee-card {
   font-weight: bold;
   border: 1px solid #ffffff;
+  width: 30%;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
   color: rgb(0, 0, 0);
-  background-color: #c3ced1;
+  background-color: #afc2c7;
 }
 
 .employee-card.zoomed {
   position: fixed;
-  top: 50%;
-  left: 25%;
+  top: 20%;
+  left: 45%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  width: 50%;
+  width: 30%;
   max-height: 80%;
   overflow-y: auto;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   animation: zoom-in-out 5s forwards;
-  background-color: #d4e6eb; 
+  background-color: #9ec3cd; 
 }
 
 

@@ -48,7 +48,10 @@ app.get("/about", (req, res) => {
 // Cities route
 app.get("/cities", async (req, res) => {
   try {
-    const [rows, fields] = await conn.execute("SELECT *  FROM `city`");
+    const order = req.query.order || "asc";
+    const [rows, fields] = await conn.execute(
+      `SELECT * FROM city ORDER BY population ${order}`
+    );
     /* Render cities.pug with data passed as plain object */
     return res.render("cities", { rows, fields });
   } catch (err) {
@@ -56,6 +59,7 @@ app.get("/cities", async (req, res) => {
     return res.status(500).send("Internal server error");
   }
 });
+
 // City search route
 app.get("/search", async (req, res) => {
   const city = req.query.city;
@@ -117,7 +121,7 @@ app.post("/api/register", async (req, res) => {
   const { email, password } = req.body;
   const hashed = await bcrypt.hash(password, 10);
   try {
-    const sql = `INSERT INTO user (email, password), VALUES ('${email}', '${hashed}')`;
+    const sql = `INSERT INTO user (email, password) VALUES ('${email}', '${hashed}')`;
     const [result, _] = await conn.execute(sql);
     const id = result.insertId;
     req.session.auth = true;
