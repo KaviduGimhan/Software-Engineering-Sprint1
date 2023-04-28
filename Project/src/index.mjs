@@ -48,7 +48,7 @@ app.get("/about", (req, res) => {
 // Cities route
 app.get("/cities", async (req, res) => {
   try {
-    const order = req.query.order || "asc";
+    const order = req.query.order || "desc";
     const [rows, fields] = await conn.execute(
       `SELECT * FROM city ORDER BY population ${order}`
     );
@@ -59,6 +59,33 @@ app.get("/cities", async (req, res) => {
     return res.status(500).send("Internal server error");
   }
 });
+
+app.post("/cities/update", async (req, res) => {
+  let { cityId, newName } = req.body;
+
+  // Check for undefined values and set them to null
+  if (cityId === undefined) {
+    cityId = null;
+  }
+  if (newName === undefined) {
+    newName = null;
+  }
+
+  try {
+    await conn.execute(
+      `UPDATE city SET Name = ? WHERE ID = ?`,
+      [newName, cityId]
+    );
+    return res.redirect("/cities");
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Internal server error");
+  }
+});
+
+
+
+
 
 // City search route
 app.get("/search", async (req, res) => {

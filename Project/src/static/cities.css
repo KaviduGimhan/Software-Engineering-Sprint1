@@ -82,38 +82,26 @@ nav {
   text-decoration: none;
 }
 
-/* Add styles for sorting */
-table.asc td.number {
-  color: green;
-}
-
-table.desc td.number {
-  color: red;
-}
-
 form {
   font-weight: bold;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   margin-bottom: 1rem;
 }
- select{
-  display: flex;
+
+select {
+  border-color: white;
+  font-size: 1rem;
+  padding: 0.25rem;
+  margin-right: 0.5rem;
   border-radius: 20px;
-  flex-direction: row;
- }
+}
 
 label {
   margin-right: 0.5rem;
   font-size: 1rem;
-}
-
-select {
-  font-size: 1rem;
-  padding: 0.25rem;
-  margin-right: 0.5rem;
 }
 
 button {
@@ -129,3 +117,21 @@ button {
 button:hover {
   background-color: #0062cc;
 }
+
+
+input[type="text"],
+input[type="search"] {
+  font-size: 1rem;
+  border-color: white;
+  padding: 0.25rem;
+  margin-right: 0.5rem;
+  border-radius: 20px;
+}
+
+input[type="number"] {
+  font-size: 1rem;
+  padding: 0.25rem;
+  margin-right: 0.5rem;
+  border-radius: 20px;
+}
+

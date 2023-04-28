@@ -1,5 +1,4 @@
-
-h2{
+h2 {
   color: black;
 }
 
@@ -29,7 +28,6 @@ h2{
   background-color: #9ec3cd; 
 }
 
-
 @keyframes zoom-in-out {
   0% {
     transform: scale(0.5);
@@ -58,4 +56,59 @@ h2{
 
 .modal-overlay.show {
   display: block;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: #a41e1e;
+  color: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.3s ease, transform 0.3s ease ;
+}
+
+button:hover {
+  background-color: #641818;
+  transform: translateX(30px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 2s ease forwards;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.popup p {
+  font-weight: bold;
+  margin: 0;
+}
+
+.popup a {
+  font-weight: bold;
+  text-decoration:none;
+  transition: color 0.3s ease;
 }

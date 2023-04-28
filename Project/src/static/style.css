@@ -56,7 +56,8 @@ nav a {
 
 
 nav b:hover {
-  color: #4d747d;
+  color: #fafeff;
+  transition: 0.3s;
 }
 
 .layout-content {
