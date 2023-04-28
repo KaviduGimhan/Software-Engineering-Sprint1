@@ -1,0 +1,45 @@
+extends layout.pug
+
+block head
+  link(rel="stylesheet", href="/cities.css")
+
+block content
+  h2(style="color: black;") City
+
+  form(action="/cities" method="GET")
+    label(for="order") Sort by population:
+    select(id="order" name="order")
+      option(value="asc" selected=true) Ascending
+      option(value="desc") Descending
+    button(type="submit") Apply
+
+  form(action="/cities/update" method="POST")
+    if rows.length > 0
+      label(for="cityId") Select a city to update:
+      input(type="text" id="cityName" name="cityId" list="cities")
+      datalist(id="cities")
+        each row in rows
+          option(value=row.ID) #{row.Name}
+      label(for="newName") Enter a new name:
+      input(type="text" id="newName" name="newName")
+      button(type="submit") Update
+    else
+      p No cities found.
+
+
+  
+  table
+    thead     
+      th(style="color: black;").text-center Country Code🚩
+      th(style="color: black;") City
+      th(style="color: black;") District 
+      th(style="color: black;").number Population
+      
+    tbody
+      each row in rows
+        tr                  
+          td.fit #{row.CountryCode}
+          td #{row.Name}
+          td #{row.District}
+          - const population = new Intl.NumberFormat().format(row.Population);
+          td.fit.number #{population}

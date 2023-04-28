@@ -1,0 +1,63 @@
+extends layout
+
+block head
+  link(rel="stylesheet", href="/about.css")
+
+block content
+
+  button.report-bug(onclick="showPopup()") Report Bug
+
+  div.employee-card(onclick="this.classList.toggle('zoomed')")
+    h2 Group 7w ! scrum master - Kavidu
+    p.position Scrum Master
+    p.email kavidu@example.com
+
+  div.employee-card(onclick="this.classList.toggle('zoomed')")
+    h2 Group 7w ! product owner - Thinura
+    p.position Product Owner
+    p.email thinura@example.com
+
+  div.employee-card(onclick="this.classList.toggle('zoomed')")
+    h2 Group 7w ! member - Zasheen
+    p.position Member
+    p.email zasheen@example.com
+
+  div.employee-card(onclick="this.classList.toggle('zoomed')")
+    h2 Group 7w ! member - Sarah
+    p.position Member
+    p.email sarah@example.com
+
+  div.modal-overlay
+    div.employee-card.zoomed
+      button.close-btn(onclick="this.parentNode.parentNode.classList.remove('zoomed')") &times;
+      h2 Employee Details
+      p Employee Name
+      p Employee Position
+      p Employee Email
+
+  
+
+  script.
+    function showPopup() {
+      const popup = document.createElement("div");
+      popup.classList.add("popup");
+
+      const message = document.createElement("p");
+      message.innerText = "Please repot any bugs to this email: ";
+
+      const emailLink = document.createElement("a");
+      emailLink.href = "mailto:example@gmail.com";
+      emailLink.innerText = "example@gmail.com";
+      emailLink.target = "_blank";
+
+      emailLink.style.color = '#7c1717';
+      
+      message.appendChild(emailLink);
+      popup.appendChild(message);
+
+      document.body.appendChild(popup);
+
+      popup.addEventListener("click", () => {
+        popup.remove();
+      });
+    }

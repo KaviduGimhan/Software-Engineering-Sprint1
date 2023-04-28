@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/css/profile.css')
+  .container
+    .profile
+      .avatar
+        span.emoji
+      .info
+        h2 #{user.name}
+        p.position #{user.position}
+        p.authority #{user.authority}
